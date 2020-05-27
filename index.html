@@ -12,16 +12,17 @@
 </head>
 <body>
 
-  <div id="app">
-    <div class="container">
-
-      <div class="row" :style="appStyles">
+  <div class="container">
+    <div id="navigation">
+      <div class="row">
         <div class="col-sm-12 text-center">
-          <h1 v-once>Guest List</h1>
+          <h1 v-once>{{ appName }}</h1>
         </div>
       </div>
+    </div>
+  <div id="app">
 
-      <div class="row" :style="appStyles">
+      <div class="row">
         <div class="col-sm-12">
           <div class="card">
             <div class="card-header">
@@ -36,13 +37,12 @@
                 <input type="text" id="nameInput" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="Jane Doe" v-model="newNameText" @keyup.space="keyPressed">
                 <input type="submit" class="btn btn-primary"></input>
               </form>
-              {{ newNameText }}
             </div>
           </div>
         </div>
       </div>
 
-      <div class="row" :style="appStyles">
+      <div class="row">
         <div class="col-sm-12">
           <div class="card">
             <div class="card-header">

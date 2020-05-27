@@ -23,11 +23,23 @@ new Vue({
         this.eventCapacityPercentage =
           this.guestName.length / (this.eventCapacity / 100);
       }
+    },
+    keyPressed: function () {
+      console.log("Key pressed");
     }
   },
   computed: {
-    sortNames: function() {
+    sortNames: function () {
       return this.guestName.sort();
+    }
+  },
+  watch: {},
+  filters: {
+    toUpper: function (data) {
+      return (
+        data.slice(0, 1).toUpperCase() +
+        data.slice(1).toLowerCase()
+      );
     }
   }
 });

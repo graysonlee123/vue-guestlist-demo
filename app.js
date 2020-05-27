@@ -1,4 +1,4 @@
-new Vue({
+const vm1 = new Vue({
   el: "#app",
   data: {
     event: {
@@ -33,31 +33,66 @@ new Vue({
   watch: {},
   filters: {
     toUpper: function (data) {
-      return (
-        data.slice(0, 1).toUpperCase() +
-        data.slice(1).toLowerCase()
-      );
+      return data.slice(0, 1).toUpperCase() + data.slice(1).toLowerCase();
     }
+  },
+  beforeCreate: function () {
+    console.log('beforeCreate');
+  },
+  created: function () {
+    console.log('created');
+  },
+  beforeMount: function () {
+    console.log('beforeMount');
+  },
+  mounted: function () {
+    console.log('mounted');
+  },
+  beforeUpdate: function () {
+    console.log('beforeUpdate');
+  },
+  updated: function () {
+    console.log('updated');
+  },
+  beforeDestroy: function () {
+    console.log('beforeDestroy');
+  },
+  destroyed: function () {
+    console.log('destroyed');
   }
 });
 
-new Vue({
+const vm2 = new Vue({
   el: "#navigation",
   data: {
-    appName: 'Guest List',
+    appName: "Guest List",
     navLinks: [
       {
-        name: 'Home', id: 1, url: 'https://google.com/'
+        name: "Home",
+        id: 1,
+        url: "https://google.com/"
       },
       {
-        name: 'Upcoming Events', id: 2, url: 'https://amazon.com/'
+        name: "Upcoming Events",
+        id: 2,
+        url: "https://amazon.com/"
       },
       {
-        name: 'Guest Benefits', id: 3, url: 'https://ebay.com/'
+        name: "Guest Benefits",
+        id: 3,
+        url: "https://ebay.com/"
       },
       {
-        name: 'Latest News', id: 4, url: 'https://myspace.com/'
-      },
+        name: "Latest News",
+        id: 4,
+        url: "https://myspace.com/"
+      }
     ]
+  },
+  methods: {
+    changeTitle: function () {
+      this.$refs.name.innerText = "Title changed";
+      console.log(this.$refs)
+    }
   }
-})
+});

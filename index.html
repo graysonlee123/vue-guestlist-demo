@@ -20,7 +20,7 @@
       <div id="navigation">
         <div class="row">
           <div class="col-sm-12 text-center">
-            <h1 v-once>{{ appName }}</h1>
+            <h1 v-once @click="changeTitle" ref="name">{{ appName }}</h1>
             <hr />
           </div>
           <div>
